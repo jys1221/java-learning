@@ -397,7 +397,7 @@ public class StudentController {
 server.port=8081                              # 端口
 spring.datasource.url=jdbc:mysql://localhost:3306/school
 spring.datasource.username=root
-spring.datasource.password=123456
+spring.datasource.password=你的数据库密码
 ```
 
 ---
