@@ -1,0 +1,6 @@
+# 生产环境配置（文件名必须是 application-prod.yml，prod 为环境名）
+# 只有 application.yml 中 spring.profiles.active=prod 时，本文件才会生效
+
+server:
+  # 生产环境使用 80 端口（HTTP 默认端口）
+  port: 80

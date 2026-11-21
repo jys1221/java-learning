@@ -2,7 +2,7 @@
 
 一个完整记录「Java 后端从零到微服务」学习过程的仓库。
 
-包含 **4 个可运行的 Spring Boot 工程** + **全套学习笔记**，覆盖从单体增删改查到微服务治理的完整链路。
+包含 **4 个可运行的 Spring Boot 工程** + **24 篇按知识点组织的教学代码** + **全部练习代码** + **全套学习笔记**，覆盖从 Java 基础语法到微服务治理的完整链路。
 
 ---
 
@@ -10,6 +10,22 @@
 
 ```
 java-learning/
+├── lessons/        # 按知识点组织的教学示例代码（24 篇，每篇独立可运行，逐段中文注释）
+│   ├── 01-java-basics/     # 程序结构、变量类型、流程控制、方法与递归
+│   ├── 02-oop/             # 类与对象、构造器、封装、继承、多态、重载重写、final/static
+│   ├── 03-collections/     # List、Map、Set、Optional
+│   ├── 04-lambda-stream/   # Lambda、Stream
+│   ├── 05-generics/        # 泛型
+│   ├── 06-exception/       # 异常处理
+│   ├── 07-io/              # 文件读写
+│   ├── 08-thread/          # 线程基础、线程安全、线程池
+│   ├── 09-reflection/      # 反射
+│   └── 10-algorithm/       # 排序、二分查找
+├── practice/       # 学习过程中实际敲的练习代码
+│   ├── 01-java-basics/        # 21 个主题练习（继承/泛型/IO/Lambda/集合/反射/Stream/线程/异常）
+│   ├── 02-oop-course/         # 面向对象课程 18 个章节练习
+│   ├── 03-spring-boot-intro/  # Spring Boot 入门工程（demo / demo2 / demo3 / shiyan2）
+│   └── 04-misc/               # 零散小练习
 ├── demo4/          # 单体应用：学生管理系统（Spring Boot + MyBatis + MySQL + Spring Security）
 ├── demo5/          # 微服务 A（8081）：对外接口 + 调用服务 B
 ├── demo6/          # 微服务 B（8082）：被调用方，含快/慢两个接口
@@ -21,6 +37,29 @@ java-learning/
     ├── demo5-check.ps1          # 早期自检脚本（备用）
     └── java路线图进度.html       # 学习进度可视化
 ```
+
+---
+
+## 教学代码怎么用
+
+`lessons/` 下每个文件就是一个知识点，**不需要搭工程**，用 IDEA 打开点绿色三角就能跑：
+
+| 步骤 | 做什么 |
+|---|---|
+| 1 | 读文件开头的注释块，知道这个知识点解决什么问题 |
+| 2 | 跟着 `main` 里的代码顺序，看每一段注释 |
+| 3 | 跑一遍，对照控制台输出 |
+| 4 | 改几个值（比如把 5 改成 10），观察结果怎么变 |
+
+命令行方式：
+
+```bash
+javac -encoding UTF-8 HelloWorld.java
+java HelloWorld
+```
+
+详细的学习顺序和每个文件对应的知识点，见 [lessons/README.md](lessons/README.md)。
+
 
 ---
 

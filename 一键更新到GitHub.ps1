@@ -68,7 +68,7 @@ if (Test-Path $propsPath) {
     $c = [System.Text.RegularExpressions.Regex]::Replace($c, '(spring\.security\.user\.password)=.*', '$1=CHANGE_ME_你的登录密码')
 
     # 确保文件开头有提示说明（如果没有就补上）
-    if ($c -notmatch "CHANGE_ME") {
+    if ($c -notmatch "^# 注意") {
         $c = "# 注意：本文件上传到公开仓库，密码已替换为占位符`r`n# 本地运行时请把 CHANGE_ME_... 换成你自己的真实密码`r`n" + $c
     }
 

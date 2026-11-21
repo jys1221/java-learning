@@ -1,0 +1,26 @@
+# 主配置文件（YAML 格式）
+# 注意：YAML 只能用空格缩进，绝对不能用 Tab；键值之间必须是「冒号 + 一个空格」
+
+# 服务器相关配置
+server:
+  # 端口号：基础配置为 8088，若激活了 dev/prod 环境，则会被对应环境文件覆盖
+  port: 8088
+
+# Spring 框架相关配置
+spring:
+  application:
+    # 应用名称，会被 @Value("${spring.application.name}") 读取
+    name: shiyan2
+  # 多环境 Profile 配置：这里通过 active 指定当前启用的环境
+  profiles:
+    # active: dev 表示启用 application-dev.yml；改成 prod 即启用 application-prod.yml
+    active: dev
+
+# 自定义配置项，供 @ConfigurationProperties(prefix = "app") 批量绑定
+app:
+  # 系统名称
+  name: 学生信息管理系统
+  # 版本号（建议加引号，避免被 YAML 当成数字解析）
+  version: "1.0.0"
+  # 作者/实验组
+  author: 实验组
