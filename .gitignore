@@ -19,3 +19,6 @@ Thumbs.db
 # ===== 本地敏感配置 =====
 # 如果以后想放真实密码，写在 application-local.properties 里，并在 application.properties 中 import 它
 **/application-local.properties
+
+# ===== 同步日志（本地生成，不提交）=====
+sync-log.txt
