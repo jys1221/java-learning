@@ -31,11 +31,11 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService users() {
         UserDetails admin = User.withUsername("admin")
-                .password("{noop}123456")
+                .password("{noop}CHANGE_ME_你的登录密码")
                 .roles("ADMIN")
                 .build();
         UserDetails user=User.withUsername("user")
-                .password("{noop}123456")
+                .password("{noop}CHANGE_ME_你的登录密码")
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(admin,user);

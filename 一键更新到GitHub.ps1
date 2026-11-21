@@ -76,6 +76,17 @@ if (Test-Path $propsPath) {
     $log += "已检查并抹掉 demo4 密码"
 }
 
+# 除了配置文件，Java 代码里也可能有硬编码密码（Spring Security 的内置用户）
+# 这里把任何 {noop}密码 统一替换成占位符，防止漏网
+$secPath = Join-Path $RepoRoot "demo4\src\main\java\com\example\demo4\SecurityConfig.java"
+if (Test-Path $secPath) {
+    $c2 = [System.IO.File]::ReadAllText($secPath, [System.Text.Encoding]::UTF8)
+    # 正则：匹配 {noop} 后面紧跟着的一串非空白、非引号字符（也就是密码）
+    $c2 = [System.Text.RegularExpressions.Regex]::Replace($c2, '\{noop\}[^\s"]+', '{noop}CHANGE_ME_你的登录密码')
+    [System.IO.File]::WriteAllText($secPath, $c2, (New-Object System.Text.UTF8Encoding($false)))
+    $log += "已检查并抹掉 SecurityConfig.java 里的密码"
+}
+
 # ==================================================================
 # 第 4 步：确保 git 能通过 gh 的凭据推送
 #   gh auth setup-git 是幂等操作：已经配置过也不会出问题
