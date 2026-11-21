@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        input{
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+        #addBtn {
+            background: #4CAF50;
+        }
+        .btn-edit {
+            background: #2196F3;
+        }
+        .btn-del {
+            background: #f44336;
+        }
+
+        body {
+            font-family: Microsoft YaHei;
+            background: #f0f2f5;      /* 浅灰背景 */
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;        /* 标题居中 */
+            color: #333;
+        }
+
+        /* 新增表单区域用卡片包裹 */
+        .form-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;       /* 圆角 */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);  /* 阴影 */
+            margin-bottom: 20px;
+        }
+        /* 表格美化 */
+        table {
+            border-collapse: collapse;      /* 合并边框 */
+            width: 100%;                     /* 占满宽度 */
+            background: white;               /* 白色背景 */
+            border-radius: 10px;             /* 圆角 */
+            overflow: hidden;                /* 让圆角生效（不然四角是方的）*/
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);  /* 阴影 */
+        }
+        th, td {
+            border: none;                    /* 去掉原来的黑边框 */
+            padding: 12px;                   /* 单元格内边距 */
+            text-align: center;              /* 居中 */
+        }
+        th {
+            background: #4CAF50;             /* 表头绿色背景 */
+            color: white;                    /* 表头白字 */
+        }
+        tr:nth-child(even) {                 /* 偶数行 */
+            background: #f2f2f2;             /* 浅灰色 */
+        }
+        tr:hover {                           /* 鼠标悬停 */
+            background: #e8f5e9;             /* 浅绿色 */
+        }
+
+
+
+    </style>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>
+    学生管理系统
+</h1>
+<div class="form-box">
+    <input type="text" id="name" placeholder="姓名">
+    <input type="text" id="age" placeholder="年龄">
+    <input type="text" id="score" placeholder="分数" step="0.1">
+    <input type="hidden"id="editId">
+    <button id="addBtn" onclick="addStudent()">新增</button>
+</div>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>分数</th>
+        <th>操作</th>
+    </tr>
+    <tbody id="studentlist">
+    </tbody>
+</table>
+<script>
+    let isAdmin=false;
+    window.onload = function() {
+        fetch('/currentUser')
+            .then(res => res.json())
+            .then(user => {
+                isAdmin = user.role === 'ROLE_ADMIN';
+                loadStudents();
+            });
+    }
+
+    function loadStudents() {
+        fetch('/students')
+            .then(response => response.json())
+            .then(data => {
+                let html = '';
+                data.forEach(s => {
+
+                    html += `<tr>
+    <td>${s.id}</td>
+    <td>${s.name}</td>
+    <td>${s.age}</td>
+    <td>${s.score}</td>
+   <td>
+    <button class="bth-edit" onclick="editStudent(${s.id},'${s.name}',${s.age},${s.score})">修改</button>
+    ${isAdmin ? `<button class="bth-del"= onclick="deleteStudent(${s.id})">删除</button>` : ''}
+</td>
+
+</tr>`;
+
+                });
+                document.getElementById('studentlist').innerHTML = html;
+            });
+    }
+
+    // addStudent 放在这里，和 loadStudents 平级
+    function addStudent() {
+        let name = document.getElementById('name').value;
+        let age = document.getElementById('age').value;
+        let score = document.getElementById('score').value;
+        let editId = document.getElementById('editId').value;
+
+        // 如果editId有值，说明是修改
+        if (editId) {
+            fetch(`/update?id=${editId}&name=${name}&age=${age}&score=${score}`)
+                .then(() => {
+                    loadStudents();
+                    // 清空输入框和editId
+                    document.getElementById('name').value = '';
+                    document.getElementById('age').value = '';
+                    document.getElementById('score').value = '';
+                    document.getElementById('editId').value = '';
+                    document.getElementById('addBtn').textContent = '新增';
+                });
+        } else {
+            // 没有editId，说明是新增
+            fetch(`/add?name=${name}&age=${age}&score=${score}`)
+                .then(() => {
+                    loadStudents();
+                    document.getElementById('name').value = '';
+                    document.getElementById('age').value = '';
+                    document.getElementById('score').value = '';
+                });
+        }
+    }
+
+    // 删除学生的函数
+    function deleteStudent(id) {
+        // 调用后端删除接口
+        fetch(`/delete?id=${id}`)
+            .then(() => {
+                // 删除成功后，重新加载学生列表
+                loadStudents();
+            });
+    }
+    // 点击修改：把这一行的数据填到输入框
+    function editStudent(id, name, age, score) {
+        document.getElementById('name').value = name;
+        document.getElementById('age').value = age;
+        document.getElementById('score').value = score;
+        document.getElementById('editId').value = id;
+        document.getElementById('addBtn').textContent = '保存修改';
+    }
+
+
+
+</script>
+</body>
+</html>

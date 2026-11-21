@@ -1,0 +1,73 @@
+<html style="margin:0;padding:0;">
+<title>Java全技术栈学习路线图进度</title>
+<style>
+  .wrap{width:100%;box-sizing:border-box;font-family:"Microsoft YaHei",sans-serif;padding:24px;background:#f7f9fc;border-radius:12px;}
+  h1{font-size:22px;color:#1f2d3d;margin:0 0 4px;text-align:center;}
+  .sub{font-size:14px;color:#8492a6;text-align:center;margin-bottom:20px;}
+  .bar-box{background:#fff;border-radius:12px;padding:20px 20px 16px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:16px;}
+  .bar-label{display:flex;justify-content:space-between;font-size:15px;font-weight:bold;color:#1f2d3d;margin-bottom:10px;}
+  .bar-label span:last-child{color:#2ecc71;}
+  .track{height:26px;background:#eef1f5;border-radius:13px;overflow:hidden;display:flex;}
+  .done{height:100%;background:linear-gradient(90deg,#2ecc71,#27ae60);border-radius:13px 0 0 13px;color:#fff;font-size:13px;line-height:26px;text-align:center;min-width:52%;}
+  .todo{height:100%;background:#e0e6ed;flex:1;}
+  .legend{display:flex;gap:18px;margin-top:12px;font-size:13px;color:#5e6d82;flex-wrap:wrap;}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px;}
+  .lg-done{background:#2ecc71;}
+  .lg-next{background:#f39c12;}
+  .lg-todo{background:#e0e6ed;}
+  .sec{background:#fff;border-radius:12px;padding:18px 20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:16px;}
+  .sec h2{font-size:16px;color:#1f2d3d;margin:0 0 12px;border-left:4px solid #2ecc71;padding-left:10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;}
+  .chip{display:inline-block;font-size:14px;padding:8px 14px;border-radius:20px;background:#eafaf1;color:#1e8449;border:1px solid #b8e6c8;}
+  .chip.next{background:#fef5e7;color:#b9770e;border:2px solid #f39c12;font-weight:bold;}
+  .chip.todo{background:#f0f3f6;color:#8492a6;border:1px solid #d9dfe6;}
+  .arrow{font-size:16px;color:#f39c12;margin:0 2px;}
+  .note{font-size:12px;color:#a0aab5;margin-top:10px;}
+</style>
+<div class="wrap">
+  <h1>Java 全技术栈学习路线图</h1>
+  <div class="sub">按「边学边做」推进 · 学生管理系统（单体实战）已完成</div>
+
+  <div class="bar-box">
+    <div class="bar-label"><span>总进度</span><span>约 52%</span></div>
+    <div class="track">
+      <div class="done">已学 12 个模块</div>
+      <div class="todo"></div>
+    </div>
+    <div class="legend">
+      <span><i class="lg-done"></i>已学</span>
+      <span><i class="lg-next"></i>下一站</span>
+      <span><i class="lg-todo"></i>待学</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>已掌握（12 个模块）</h2>
+    <div class="chips">
+      <span class="chip">Java 基础</span>
+      <span class="chip">数据结构</span>
+      <span class="chip">MySQL</span>
+      <span class="chip">Redis</span>
+      <span class="chip">Maven / Git</span>
+      <span class="chip">HTTP / Web</span>
+      <span class="chip">Spring Boot</span>
+      <span class="chip">MyBatis</span>
+      <span class="chip">Spring Security</span>
+      <span class="chip">Linux</span>
+      <span class="chip">Docker（概念）</span>
+      <span class="chip">MQ（概念）</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>待学习（下一站开始）</h2>
+    <div class="chips">
+      <span class="chip next">微服务 Spring Cloud <span class="arrow">→</span> 下一个</span>
+      <span class="chip todo">分布式</span>
+      <span class="chip todo">K8s / DevOps</span>
+      <span class="chip todo">Java 安全</span>
+    </div>
+    <div class="note">进度为估算值（已学模块数 ÷ 路线图总模块数），学生管理系统增删改查 + 登录权限已全部实战完成。</div>
+  </div>
+</div>
+</html>

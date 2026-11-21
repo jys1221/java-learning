@@ -1,0 +1,21 @@
+# ===== Maven 构建产物 =====
+target/
+*.class
+
+# ===== IntelliJ IDEA =====
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ===== 日志 =====
+*.log
+derby.log
+
+# ===== 系统文件 =====
+.DS_Store
+Thumbs.db
+
+# ===== 本地敏感配置 =====
+# 如果以后想放真实密码，写在 application-local.properties 里，并在 application.properties 中 import 它
+**/application-local.properties
