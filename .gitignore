@@ -22,3 +22,12 @@ Thumbs.db
 
 # ===== 同步日志（本地生成，不提交）=====
 sync-log.txt
+
+# ===== AI 工具密钥（严禁提交）=====
+# Qwen Code 的配置里有明文 ms- 令牌，一旦进仓库推到 GitHub 就等于泄露账号密钥
+.qwen/
+**/.qwen/
+.qwen/settings.json
+**/.qwen/settings.json
+qwen-oauth-cred.json
+**/qwen-oauth-cred.json
