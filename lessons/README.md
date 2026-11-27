@@ -105,6 +105,57 @@ java HelloWorld
 | `SortDemo.java` | 排序 | 冒泡、插入、快排的实现与复杂度对比（含 2 万条实测耗时） |
 | `BinarySearchDemo.java` | 二分查找 | 迭代版与递归版、为什么快、三个常见易错点 |
 
+### 11-data-structures —— 数据结构（18 篇）
+
+| 文件 | 知识点 | 学完你会知道 |
+|---|---|---|
+| `ArrayDemo.java` | 数组与动态数组 | 原生数组的 O(1) 随机访问、手写 1.5 倍扩容的 ArrayList、头部插入 vs 尾部插入实测 |
+| `SinglyLinkedListDemo.java` | 单链表 | 头插尾插、按值删除、反转（迭代 + 递归）、快慢指针找中点、判环、合并两个有序链表 |
+| `DoublyLinkedListDemo.java` | 双向链表 | prev/next 两个方向的指针、带 tail 的 O(1) 尾插、按值删除要改两处指针 |
+| `CircularLinkedListDemo.java` | 循环链表 | 尾节点回指 head、遍历终止条件、约瑟夫环报数出列 |
+| `StackDemo.java` | 栈 | 数组栈 / 链栈、括号匹配、最小栈、为什么官方推荐 `ArrayDeque` |
+| `QueueDemo.java` | 队列 | 循环队列判满要牺牲一格、链式队列、`ArrayDeque` / `LinkedList` 对照 |
+| `DequeDemo.java` | 双端队列 | 双指针取模两端增删、单调队列求滑动窗口最大值 |
+| `PriorityQueueHeapDemo.java` | 优先队列与堆 | siftUp/siftDown、建堆 O(n)、TopK、`PriorityQueue` 默认是最小堆 |
+| `HashMapDemo.java` | 哈希表 | 开放寻址（墓碑删除）、链地址法、扩容 rehash、JDK 的 0.75 负载因子与树化 |
+| `BinaryTreeDemo.java` | 二叉树 | 前中后层四种遍历（递归 + 迭代）、高度/叶子数、前序 + 中序重建 |
+| `BinarySearchTreeDemo.java` | 二叉搜索树 | 插入/查找/删除三种情况、中序必升序、退化成链表的最坏情况 |
+| `AvlTreeDemo.java` | AVL 平衡树 | 平衡因子、LL/RR/LR/RL 四种旋转、插入后回溯调平 |
+| `TreeMapRedBlackDemo.java` | 红黑树与 TreeMap | 5 条性质、最长路径 ≤ 2×最短路径、`floorKey/ceilingKey/subMap` |
+| `UnionFindDemo.java` | 并查集 | 路径压缩、按秩合并、连通块计数、朋友圈问题 |
+| `TrieDemo.java` | Trie 字典树 | 插入 / 整词查找 / 前缀查找 / 自动补全、空间换时间 |
+| `GraphDemo.java` | 图 | 邻接矩阵与邻接表两种存法、空间与判边速度的取舍 |
+| `SegmentTreeDemo.java` | 线段树 | 区间和 / 区间最值、懒标记区间加与 pushDown |
+| `FenwickTreeDemo.java` | 树状数组 | lowbit、单点修改 + 前缀和、树状数组求逆序对 |
+
+### 12-algorithms —— 算法（23 篇）
+
+| 文件 | 知识点 | 学完你会知道 |
+|---|---|---|
+| `BubbleSortDemo.java` | 冒泡排序 | 提前退出优化、稳定性实证、与 `Arrays.sort` 200 组对拍 |
+| `SelectionSortDemo.java` | 选择排序 | 交换次数最多 n-1（写操作少）、为什么它不稳定 |
+| `InsertionSortDemo.java` | 插入排序 | 摸扑克牌模型、近乎有序时 O(n)、二分插入优化 |
+| `ShellSortDemo.java` | 希尔排序 | gap 减半分组插入、为什么比插入排序快 |
+| `MergeSortDemo.java` | 归并排序 | 分治 + 临时数组归并、稳定、O(n) 额外空间 |
+| `QuickSortDemo.java` | 快速排序 | Lomuto / Hoare / 三路分区、随机化基准避免最坏 O(n²) |
+| `HeapSortDemo.java` | 堆排序 | 原地建堆 O(n)、下沉调整、O(1) 额外空间 |
+| `CountingSortDemo.java` | 计数排序 | 用前缀和定位保证稳定、负数偏移、值域小的前提 |
+| `RadixSortDemo.java` | 基数排序 | LSD 按位、稳定性是正确性前提（有反例演示） |
+| `BucketSortDemo.java` | 桶排序 | 分桶 + 桶内插入排序、适合均匀分布的浮点数 |
+| `BinarySearchTemplateDemo.java` | 二分三套模板 | 精确查找 / 左边界 / 右边界、mid 防溢出、二分答案 |
+| `RecursionDivideConquerDemo.java` | 递归与分治 | 递归三要素、记忆化、汉诺塔、快速幂 |
+| `GreedyDemo.java` | 贪心 | 区间调度、跳跃游戏、贪心在 0/1 背包上为什么会失效 |
+| `DynamicProgrammingDemo.java` | 动态规划 | 0/1 背包一维倒序、完全背包、LIS 两种解法、编辑距离、股票系列 |
+| `BacktrackingDemo.java` | 回溯 | 选择 → 递归 → 撤销、全排列 / 组合 / N 皇后 / 子集、剪枝 |
+| `GraphTraversalDemo.java` | 图的 BFS/DFS | 队列层序、递归与显式栈、距离数组、连通分量 |
+| `ShortestPathDemo.java` | 最短路径 | Dijkstra 懒删除、Bellman-Ford 判负环、Floyd 的 k 必须最外层 |
+| `MinimumSpanningTreeDemo.java` | 最小生成树 | Prim 与 Kruskal、两法总权重必须相等 |
+| `TopologicalSortDemo.java` | 拓扑排序 | Kahn 入度法、DFS 后序法、用"结果长度 < n"判环 |
+| `KmpDemo.java` | KMP | next 数组构造、i 指针不回退、与暴力匹配对拍 |
+| `TwoPointersSlidingWindowDemo.java` | 双指针与滑动窗口 | 对撞指针、定长窗口、最长无重复子串的 while 收缩 |
+| `PrefixSumAndDiffDemo.java` | 前缀和与差分 | pre 长度 n+1、区间和 `pre[r+1]-pre[l]`、二维容斥、差分区间加、int 溢出坑 |
+| `BitManipulationDemo.java` | 位运算技巧 | 取最低位的 1、消位、判 2 的幂、异或找唯一数、优先级坑 |
+
 ---
 
 ## 学习顺序建议
@@ -113,7 +164,14 @@ java HelloWorld
 
 ```
 01 基础语法 → 02 面向对象 → 03 集合 → 04 Lambda/Stream
-→ 05 泛型 → 06 异常 → 07 IO → 08 多线程 → 09 反射 → 10 算法
+→ 05 泛型 → 06 异常 → 07 IO → 08 多线程 → 09 反射 → 10 算法入门
+→ 11 数据结构（18 篇）→ 12 算法（23 篇）
 ```
+
+`11-data-structures` 和 `12-algorithms` 是配套的一整套：每个主题一个文件，文件头部注释就有
+"为什么需要 → 复杂度速查表 → 易错点 → 与 Java 集合类的对应 → 一句话口诀"，正文逐段中文注释，
+`main` 里带断言式校验（跑完最后一行会打印"全部断言通过，共 N 条"），跑不对会直接抛异常，不会"看起来通过"。
+
+配套的完整讲解（示意图 + 复杂度表 + 面试题索引）见 [docs/Java数据结构与算法总纲.md](../docs/Java数据结构与算法总纲.md)。
 
 每个模块学完，再去 `practice/` 里看你当时敲的练习代码，对照理解。
